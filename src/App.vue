@@ -1459,7 +1459,7 @@ export default {
     stopChat() {
       var that = this;
       this.axios
-        .post("http://localhost:8003/api/stop/", {})
+        .post("http://"+process.env.host+"/api/stop/", {})
         .then((result) => {
           var rconv = that.conversation[that.conversation.length - 1];
           rconv["loading"] = false;
@@ -1592,7 +1592,7 @@ export default {
       }
       var that = this;
       const Http = new XMLHttpRequest();
-      const url = "http://localhost:8003/api/repeat";
+      const url = "http://"+process.env.host+"/api/repeat";
       Http.open("GET", url);
       Http.send();
       Http.onreadystatechange = (e) => {
@@ -1653,7 +1653,7 @@ export default {
       this.handleScrollBottom();
       var that = this;
       const Http = new XMLHttpRequest();
-      const url = "http://localhost:8003/api/chat?prompt=" + encodeURIComponent(chatMsg);
+      const url = "http://"+process.env.host+"/api/chat?prompt=" + encodeURIComponent(chatMsg);
       Http.open("GET", url);
       Http.send();
       Http.onreadystatechange = (e) => {
@@ -1676,7 +1676,7 @@ export default {
             that.handleScrollBottom();
             if (content.includes('[SD IMAGE]')){
               const time = new Date().getTime();
-              conv["speeches"][0] += content.replace('[SD IMAGE]','')+'<img src="http://127.0.0.1:8003/api/sdimg?time='+time+'"/>';
+              conv["speeches"][0] += content.replace('[SD IMAGE]','')+'<img src=http://'+process.env.host+'/api/sdimg?time='+time+'"/>';
             } else if(content.includes('[ERROR]')){
               console.log('Error occured')
               conv["speeches"][0] += '<font color="#e67237">出现错误，请稍后再试</font>';
@@ -1784,7 +1784,7 @@ export default {
     },
     delConv(cidx) {
       const Http = new XMLHttpRequest();
-      const url = "http://localhost:8003/api/delete";
+      const url = "http://"+process.env.host+"/api/delete";
       Http.open("POST", url);
       Http.send();
       Http.onreadystatechange = (e) => {

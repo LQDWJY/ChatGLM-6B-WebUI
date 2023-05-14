@@ -1,0 +1,32 @@
+{
+  "basic": {
+    "port": 8000,
+    "host": "http://127.0.0.1"
+  },
+  "SD": {
+    "port": 7861,
+    "host": "http://127.0.0.1"
+  },
+  "Web": {
+    "ignore_url": ["google.com", "twitter.com", "bit.ly", "youtube.com"],
+    "git_token": "",
+    "web_max_length": 256,
+    "local": [
+      "知乎专栏",
+      "知乎回复",
+      "百科",
+      "微信公众号",
+      "新闻",
+      "B站专栏",
+      "CSDN",
+      "GitHub",
+      "All(Preview)"
+    ],
+    "feature": [
+      "知乎专栏",
+      "百科",
+      "GitHub",
+      "新闻"
+    ]
+  }
+}
